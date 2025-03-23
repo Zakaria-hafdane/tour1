@@ -1042,3 +1042,21 @@ header.header-sm{
     opacity: 1; /* Make text visible */
 }
 
+@media (max-width: 768px) {
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* Space between items */
+    }
+  
+    .nav-item {
+      margin-bottom: 0; /* Reset if previously set */
+    }
+  
+    .nav-link {
+      font-size: 16px;
+      color: white; /* Adjust as needed */
+      text-decoration: none;
+    }
+  }
+  

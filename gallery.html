@@ -370,7 +370,7 @@
 
             allGalleryItem.forEach((galleryItem) => {
                 galleryItem.addEventListener('click', () => {
-                    imgModalDiv.style.display = "block";
+                    imgModalDiv.style.display = "none";
                     let imgSrc = galleryItem.querySelector('img').src;
                     imgIndex = parseInt(imgSrc.split("-")[1].substring(0, 1));
                     showImageContent(imgIndex);
