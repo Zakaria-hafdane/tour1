@@ -42,81 +42,76 @@
 }
 
 /* navbar side menu */
-@media (max-width: 767px) {
+/* Base styling for navbar */
+.navbar {
+    position: relative; /* Keep it relative for positioning */
+    background-color: #333; /* Set a background color for the navbar */
+    color: white; /* Set text color */
+}
+
+/* Navbar collapse for mobile */
+#navbar-collapse {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed position for sliding effect */
+    top: 0; /* Align to the top */
+    right: -250px; /* Start off-screen */
+    width: 250px; /* Width of the mobile navbar */
+    height: 100%; /* Full height */
+    background-color: #444; /* Background color for the mobile dropdown */
+    transition: right 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Show navbar when the class is added */
+#navbar-collapse.navbar-collapse-rmw {
+    display: block; /* Show the navbar */
+    right: 0; /* Slide into view */
+}
+
+/* Navbar items styling */
+.navbar-nav {
+    display: flex; /* Horizontal layout on desktop */
+    list-style: none; /* Remove default list styling */
+    margin: 0;
+    padding: 0;
+    flex-direction: row; /* Row layout for desktop */
+}
+
+/* Nav items */
+.nav-item {
+    margin: 0; /* Remove default margin */
+    margin-left: 1rem; /* Add space between items */
+}
+
+/* Adjust font size and padding for links */
+.nav-link {
+    font-size: 1rem; /* Font size for desktop */
+    padding: 1rem; /* Padding for navbar items */
+    color: white; /* Set link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+    /* Show hamburger icon on mobile */
     #navbar-show-btn {
-        display: block !important;
+        display: flex; /* Show toggle button */
+        margin-left: auto; /* Align to the right */
     }
 
-    #navbar-collapse {
-        display: none; /* Hide menu by default */
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: black; /* Change based on your design */
+    /* Navbar items display on mobile */
+    .navbar-nav {
+        flex-direction: column; /* Stack items vertically on mobile */
+        padding: 1rem; /* Padding for navbar items */
+        width: 100%; /* Full width for mobile view */
     }
 
-    .show-navbar {
-        display: block !important; /* Class added via JavaScript to show menu */
+    /* Adjust overall height for mobile view */
+    .navbar {
+        height: auto; /* Auto height */
     }
 }
 
-#navbar-collapse{
-    background-color: var(--green);
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    padding: 2rem;
-    -webkit-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-            transform: translateX(100%);
-    -webkit-transition: var(--trans);
-    -o-transition: var(--trans);
-    transition: var(--trans);
-}
-.navbar-collapse-rmw{
-    /* js related */
-    -webkit-transform: translateX(0)!important;
-        -ms-transform: translateX(0)!important;
-            transform: translateX(0)!important;
-}
-#navbar-close-btn{
-    background: none;
-    color: #fff;
-    width: 35px;
-    height: 35px;
-    border-radius: 0.2rem;
-    font-size: 2rem;
-    -webkit-transition: var(--trans);
-    -o-transition: var(--trans);
-    transition: var(--trans);
-    position: absolute;
-    right: 1rem;
-    top: 2rem;
-    border: none;
-}
-#navbar-close-btn:hover{
-    background-color: #fff;
-    color: var(--green);
-}
-.navbar-nav{
-    margin-top: 5rem;
-}
-.nav-item{
-    margin: 1.6rem 0;
-}
-.nav-link{
-    color: #fff;
-    font-size: 1.2rem;
-    -webkit-transition: var(--trans);
-    -o-transition: var(--trans);
-    transition: var(--trans);
-}
-.nav-link:hover{
-    opacity: 0.8;
-}
 
 /* header */
 header{

@@ -35,14 +35,4 @@ window.addEventListener('resize', () => {
     resizeTimer = setTimeout(() => {
         document.body.classList.remove("resize-animation-stopper");
     }, 400);
-}); 
-
-navbarShowBtn.addEventListener('click', () => {
-    console.log('Navbar show button clicked'); // Debug log
-    navbarCollapseDiv.style.display = 'block';
-});
-
-navbarCloseBtn.addEventListener('click', () => {
-    console.log('Navbar close button clicked'); // Debug log
-    navbarCollapseDiv.style.display = 'none';
 });
