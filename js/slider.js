@@ -93,7 +93,7 @@ $(document).ready(() => {
         const message = $("#message").val();
         
         // Create WhatsApp message
-        let whatsappMessage = `Hello, I want to book a trip to Ouzoud Waterfalls\n`;
+        let whatsappMessage = `Hello, I want to book a trip \n`;
         whatsappMessage += `Name: ${name}\n`;
         whatsappMessage += `Email: ${email}\n`;
         whatsappMessage += `Phone: ${phone}\n`;
@@ -105,7 +105,7 @@ $(document).ready(() => {
         const encodedMessage = encodeURIComponent(whatsappMessage);
         
         // Open WhatsApp with the message
-        window.open(`https://web.whatsapp.com/send?phone=212643562320&text=${encodedMessage}`, '_blank');
+        window.open(`https://whatsapp.com/send?phone=212643562320&text=${encodedMessage}`, '_blank');
 
 
     });
