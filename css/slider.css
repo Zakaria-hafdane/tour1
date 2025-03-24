@@ -32,14 +32,16 @@
   width: 350px;
 }
 
+/* Fix the slider image display */
 .slider-item {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 5;
   display: none;
+  overflow: hidden;
 }
 
 .slider-item img {
@@ -47,6 +49,8 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.6);
+  object-position: center;
+  position: static;
 }
 
 .slider-content {
@@ -154,26 +158,16 @@
 }
 
 @media (max-width: 480px) {
-  /* Remove the background color from the content */
-  .slider-content {
-    top: 50%;
-    width: 90%;
-    padding: 0;
-    background-color: transparent;
-    border-radius: 0;
+  .slider-next,
+  .slider-prev {
+    width: 30px;
+    height: 30px;
+    padding: 8px;
   }
 
-  /* Keep the image aspect ratio fixes */
-  .slider-item {
-    height: 100vh;
-  }
-
-  .slider-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    max-height: 100vh;
+  .slider-next i,
+  .slider-prev i {
+    font-size: 0.8rem;
   }
 }
 
@@ -404,23 +398,32 @@
   .slider-birt img {
     width: 250px;
   }
+}
 
-  /* Fix for image aspect ratio and positioning on mobile */
-  .slider-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+@media (max-width: 480px) {
+  /* Remove the background color from the content */
+  .slider-content {
+    top: 50%;
+    width: 90%;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
   }
 
-  .slider-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    max-height: 100vh;
+  .header-title-text {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .slider-content1 {
+    font-size: 0.9rem;
+    margin: 1rem auto;
+    line-height: 1.4;
+  }
+
+  .slider-button {
+    padding: 6px 12px;
+    margin: 15px auto;
   }
 }
 
