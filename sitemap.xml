@@ -8,5 +8,49 @@
         <loc>https://marrakechactivitiesportal.com/ouzoud.html</loc>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/index.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/tangier.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/paraglidingaguergour.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/Merzouga.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/Immobilier.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/HotAirBallon.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/gallery.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/Essaouira.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/contact.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/agafay.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://marrakechactivitiesportal.com/about.html</loc>
+        <priority>0.8</priority>
+    </url>
     <!-- Add more pages here -->
 </urlset>
