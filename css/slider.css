@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap");
 
 /* Slider Specific Styles */
-
 .slider-container {
   position: absolute;
   top: 0;
@@ -32,7 +31,7 @@
   width: 350px;
 }
 
-/* Fix the slider image display */
+/* Fix the slider image display - KEY CHANGES HERE */
 .slider-item {
   position: absolute;
   top: 0;
@@ -44,32 +43,42 @@
   overflow: hidden;
 }
 
+/* This is the critical fix for image display */
 .slider-item img {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
+  object-position: center center; /* Ensures perfect centering */
   filter: brightness(0.6);
-  object-position: center;
-  position: static;
+  transition: transform 0.5s ease;
+  position: relative; /* Changed from static to relative */
+  display: block; /* Ensures the image takes full space */
 }
 
 .slider-content {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  max-width: 700px;
+  width: 80%;
+  max-width: 800px;
   color: #fff;
   z-index: 8;
   text-align: center;
-  transition: width 1s ease;
+  transition: all 0.5s ease;
 }
 
 .slider-content.expanded {
-  width: 80%;
+  width: 85%;
   max-width: 900px;
-  transition: width 1s ease;
+}
+
+/* Fix for double h1/h2 issue in the HTML */
+.header-title-text h1 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .header-title-text {
@@ -79,6 +88,7 @@
   color: #fff;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slider-content1 {
@@ -87,53 +97,40 @@
   font-weight: 500;
   font-size: 1.3rem;
   line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .slider-button {
   margin: 30px auto;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   width: max-content;
-  padding: 10px 20px;
-  transition: 1s;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
   cursor: pointer;
   display: inline-block;
+  font-weight: 600;
+  border-radius: 4px;
 }
 
 .slider-button:hover {
   background: #1ec6b6;
   color: #fff;
   border-color: #1ec6b6;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.slider-next {
-  position: absolute;
-  z-index: 100;
-  top: 40%;
-  right: 20px;
-  transform: translateY(-50%);
-  padding: 15px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.7);
-  transition: 0.3s;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* Improved navigation buttons */
+.slider-next,
 .slider-prev {
   position: absolute;
   z-index: 100;
-  top: 40%;
-  left: 20px;
+  top: 50%;
   transform: translateY(-50%);
-  padding: 15px;
+  padding: 0;
   border: none;
   background-color: rgba(255, 255, 255, 0.7);
-  transition: 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
   border-radius: 50%;
   width: 50px;
@@ -141,93 +138,92 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-/* Responsive styles for slider buttons */
-@media (max-width: 768px) {
-  .slider-next,
-  .slider-prev {
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-  }
-
-  .slider-next i,
-  .slider-prev i {
-    font-size: 0.9rem;
-  }
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 480px) {
-  .slider-next,
-  .slider-prev {
-    width: 30px;
-    height: 30px;
-    padding: 8px;
-  }
-
-  .slider-next i,
-  .slider-prev i {
-    font-size: 0.8rem;
-  }
+.slider-next:hover,
+.slider-prev:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%) scale(1.1);
 }
 
-/* Animation Classes */
+.slider-next {
+  right: 30px;
+}
+
+.slider-prev {
+  left: 30px;
+}
+
+.slider-next i,
+.slider-prev i {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Animation Classes - Improved for smoother transitions */
 .active,
 .hide {
   display: block;
 }
 
+/* Modified animations for smoother transitions and better image display */
 .active img {
-  animation: showimg 1s ease-in-out 1 forwards;
+  animation: showimg 0.8s ease-out 1 forwards;
 }
 
 .hide img {
-  animation: hideimg 1s ease-in-out 1 forwards;
+  animation: hideimg 0.8s ease-out 1 forwards;
 }
 
 @keyframes showimg {
   0% {
-    transform: translate(100%, 0);
+    transform: scale(1.05) translate(5%, 0);
+    opacity: 0.8;
   }
   100% {
-    transform: translate(0%, 0);
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
   }
 }
 
 @keyframes hideimg {
   0% {
-    transform: translate(0%, 0);
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
   }
   100% {
-    transform: translate(-100%, 0);
+    transform: scale(0.95) translate(-5%, 0);
+    opacity: 0;
   }
 }
 
 .active .slider-content .header-title-text {
   opacity: 0;
-  animation: showcontent 0.7s ease-in-out 1s 1 forwards;
+  animation: showcontent 0.7s ease-out 0.3s 1 forwards;
 }
 
 .active .slider-content .slider-content1 {
   opacity: 0;
-  animation: showcontent 0.7s ease-in-out 1.2s 1 forwards;
+  animation: showcontent 0.7s ease-out 0.5s 1 forwards;
 }
 
 .active .slider-content .slider-button {
   opacity: 0;
-  animation: showcontent 0.7s ease-in-out 1.4s 1 forwards;
+  animation: showcontent 0.7s ease-out 0.7s 1 forwards;
 }
 
 .hide .slider-content .header-title-text,
 .hide .slider-content .slider-content1,
 .hide .slider-content .slider-button {
-  animation: hidecontent 1.7s ease-in-out 1 forwards;
+  animation: hidecontent 0.5s ease-out 1 forwards;
 }
 
 @keyframes showcontent {
   0% {
-    filter: blur(33px);
-    transform: translate(0, 50px);
+    filter: blur(20px);
+    transform: translate(0, 30px);
+    opacity: 0;
   }
   100% {
     filter: blur(0px);
@@ -240,10 +236,11 @@
   0% {
     filter: blur(0);
     transform: translate(0, 0);
+    opacity: 1;
   }
   100% {
-    transform: translate(0, -50px);
-    filter: blur(33px);
+    transform: translate(0, -20px);
+    filter: blur(10px);
     opacity: 0;
   }
 }
@@ -358,7 +355,7 @@
 
 /* Animation for auto-slide time indicator */
 .slider-container.time-running::before {
-  animation: autoSlideTime 3s linear 1 forwards;
+  animation: autoSlideTime 5s linear 1 forwards;
 }
 
 @keyframes autoSlideTime {
@@ -370,29 +367,51 @@
   }
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Responsive Styles - Enhanced */
+@media (max-width: 992px) {
   .slider-content {
-    width: 80%;
+    width: 85%;
   }
 
   .header-title-text {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-content {
+    width: 90%;
+    top: 55%;
+  }
+
+  .header-title-text {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
   }
 
   .slider-content1 {
     font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 1.2rem auto;
   }
 
   .slider-button {
-    padding: 8px 16px;
+    padding: 10px 20px;
     margin: 20px auto;
   }
 
-  .slider-next {
-    padding: 10px;
+  .slider-next,
+  .slider-prev {
     width: 40px;
     height: 40px;
+  }
+
+  .slider-next {
+    right: 15px;
+  }
+
+  .slider-prev {
+    left: 15px;
   }
 
   .slider-birt img {
@@ -401,13 +420,9 @@
 }
 
 @media (max-width: 480px) {
-  /* Remove the background color from the content */
   .slider-content {
-    top: 50%;
-    width: 90%;
-    padding: 0;
-    background-color: transparent;
-    border-radius: 0;
+    width: 95%;
+    top: 55%;
   }
 
   .header-title-text {
@@ -416,14 +431,26 @@
   }
 
   .slider-content1 {
-    font-size: 0.9rem;
-    margin: 1rem auto;
+    font-size: 0.95rem;
     line-height: 1.4;
+    margin: 1rem auto;
   }
 
   .slider-button {
-    padding: 6px 12px;
+    padding: 8px 16px;
     margin: 15px auto;
+    font-size: 0.9rem;
+  }
+
+  .slider-next,
+  .slider-prev {
+    width: 35px;
+    height: 35px;
+  }
+
+  .slider-next i,
+  .slider-prev i {
+    font-size: 0.9rem;
   }
 }
 

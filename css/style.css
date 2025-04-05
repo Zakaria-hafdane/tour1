@@ -1060,3 +1060,66 @@ header.header-sm{
     }
   }
   
+  .btn-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .sunset-btn {
+    position: relative;
+    display: inline-block;
+    padding: 18px 48px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: linear-gradient(135deg, #8e2de2, #ff6a00);
+    border-radius: 50px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(255, 106, 0, 0.4), 0 0 25px rgba(142, 45, 226, 0.3);
+  }
+  
+  .sunset-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(255, 106, 0, 0.3),
+      rgba(142, 45, 226, 0.3),
+      rgba(255, 106, 0, 0.3)
+    );
+    animation: rotateRays 6s linear infinite;
+    filter: blur(40px);
+    z-index: 0;
+    opacity: 0.5;
+  }
+  
+  .sunset-btn span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .sunset-btn:hover {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 20px rgba(255, 106, 0, 0.6),
+      0 0 40px rgba(142, 45, 226, 0.4),
+      0 0 60px rgba(255, 106, 0, 0.4);
+    border-color: #fff;
+    color: #fff;
+  }
+  
+  @keyframes rotateRays {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
